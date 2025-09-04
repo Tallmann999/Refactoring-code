@@ -4,7 +4,11 @@ using UnityEngine;
 public class WeaponShoot : MonoBehaviour
 {
     [SerializeField] private float _speed;
+<<<<<<< HEAD
+    [SerializeField] private Bullet _prefab;
+=======
     [SerializeField] private Rigidbody _prefab;
+>>>>>>> main
     [SerializeField] private float _waitingTime = 1f;
 
     private Transform _currentTarget;
@@ -32,6 +36,14 @@ public class WeaponShoot : MonoBehaviour
         while (isWork)
         {
             Vector3 direction = (_currentTarget.position - transform.position).normalized;
+<<<<<<< HEAD
+            Bullet currentBullet = Instantiate(_prefab, transform.position + direction, Quaternion.identity);
+            currentBullet.Initialize(direction,_speed);
+
+            yield return _waitForSeconds;
+        }
+    }  
+=======
             Rigidbody newBullet = Instantiate(_prefab, transform.position + direction, Quaternion.identity);
 
             Rigidbody currentBullet = newBullet;
@@ -41,4 +53,5 @@ public class WeaponShoot : MonoBehaviour
             yield return _waitForSeconds;
         }
     }
+>>>>>>> main
 }

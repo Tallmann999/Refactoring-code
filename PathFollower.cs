@@ -1,4 +1,8 @@
 using UnityEngine;
+<<<<<<< HEAD
+using static UnityEngine.GraphicsBuffer;
+=======
+>>>>>>> main
 
 public class PathFollower : MonoBehaviour
 {
@@ -10,7 +14,15 @@ public class PathFollower : MonoBehaviour
 
     private void Update()
     {
+<<<<<<< HEAD
+        Transform target = _points[_currentPointIndex];
+        transform.position = Vector3.MoveTowards(transform.position, target.position, _movingSpeed * Time.deltaTime);
+
+        if (transform.position == target.position)
+            MoveToPoints();
+=======
         MoveToPoints();
+>>>>>>> main
     }
 
     [ContextMenu("Refresh Child Array")]
@@ -24,6 +36,16 @@ public class PathFollower : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
+    private Vector3 MoveToPoints()
+    {
+        if (_currentPointIndex == _points.Length)
+            _currentPointIndex = ++_currentPointIndex % _points.Length;
+
+        Vector3 currentPosition = _points[_currentPointIndex].transform.position;
+        transform.forward = currentPosition - transform.position;
+        return currentPosition;
+=======
     private void MoveToPoints()
     {
         Transform target = _points[_currentPointIndex];
@@ -31,5 +53,6 @@ public class PathFollower : MonoBehaviour
 
         if (transform.position == target.position)
             _currentPointIndex = ++_currentPointIndex % _points.Length;
+>>>>>>> main
     }
 }
